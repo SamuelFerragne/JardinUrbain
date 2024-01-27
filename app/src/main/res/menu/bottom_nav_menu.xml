@@ -1,10 +1,10 @@
-<?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
         android:id="@+id/action_louer"
-        android:title="Louer"
+        android:icon="@drawable/soil"
+        android:title=""
         app:showAsAction="never" />
 
     <item
@@ -14,6 +14,7 @@
 
     <item
         android:id="@+id/action_carte"
+        android:icon="@drawable/earth_nocolor"
         android:title="Carte"
         app:showAsAction="never" />
 
@@ -24,6 +25,7 @@
 
     <item
         android:id="@+id/action_profil"
+        android:icon="@drawable/profile"
         android:title="Profil"
         app:showAsAction="never" />
 
