@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
                 "test@email.com",
                 "123456789",
                 5,
-                150.0,
+                "150m",
                 images
         );
     }

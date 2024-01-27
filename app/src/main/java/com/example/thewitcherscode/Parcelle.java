@@ -16,7 +16,7 @@ public class Parcelle implements Parcelable {
     private String contactCourriel;
     private String contactTelephone;
     private int noteEtoile;
-    private double superficie;
+    private String superficie;
     private List<Integer> images;
 
     public static final Parcelable.Creator<Parcelle> CREATOR = new Parcelable.Creator<Parcelle>() {
@@ -33,7 +33,7 @@ public class Parcelle implements Parcelable {
 
     // Constructeur
     public Parcelle(String adresse, double prixParMois, String description, String contactCourriel,
-                    String contactTelephone, int noteEtoile, double superficie,List<Integer> images) {
+                    String contactTelephone, int noteEtoile, String superficie,List<Integer> images) {
         this.adresse = adresse;
         this.prixParMois = prixParMois;
         this.description = description;
@@ -51,7 +51,7 @@ public class Parcelle implements Parcelable {
         contactCourriel = in.readString();
         contactTelephone = in.readString();
         noteEtoile = in.readInt();
-        superficie = in.readDouble();
+        superficie = in.readString();
         images = new ArrayList<>();
         in.readList(images, Integer.class.getClassLoader());
     }
@@ -90,7 +90,7 @@ public class Parcelle implements Parcelable {
         return noteEtoile;
     }
 
-    public double getSuperficie() {
+    public String getSuperficie() {
         return superficie;
     }
 
@@ -119,7 +119,7 @@ public class Parcelle implements Parcelable {
         this.noteEtoile = noteEtoile;
     }
 
-    public void setSuperficie(double superficie) {
+    public void setSuperficie(String superficie) {
         this.superficie = superficie;
     }
     public void setImages(List<Integer> images) {
@@ -139,7 +139,7 @@ public class Parcelle implements Parcelable {
         dest.writeString(contactCourriel);
         dest.writeString(contactTelephone);
         dest.writeInt(noteEtoile);
-        dest.writeDouble(superficie);
+        dest.writeString(superficie);
         dest.writeList(images);
     }
 }

@@ -23,6 +23,11 @@ public class LouerActivity extends AppCompatActivity {
         ViewPager   VP_imageParcelle    =   findViewById(R.id.VP_imageParcelle);
         Toolbar     tb_retour           =   findViewById(R.id.tb_retour);
         TextView    tv_adresse          =   findViewById(R.id.tv_adresse);
+        TextView    tv_superficie       =   findViewById(R.id.tv_superficie);
+        TextView    tv_description      =   findViewById(R.id.tv_description);
+        TextView    tv_contact          =   findViewById(R.id.tv_contact);
+        TextView    tv_prixMensuel      =   findViewById(R.id.tv_prixMensuel);
+        TextView    tv_note             =   findViewById(R.id.tv_note);
         setSupportActionBar(tb_retour);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -41,6 +46,13 @@ public class LouerActivity extends AppCompatActivity {
                     // Log ou gestion d'erreur si la liste d'images est null ou vide
                 }
             }
+
+            tv_adresse.setText(parcelle.getAdresse());
+            tv_superficie.setText(parcelle.getSuperficie());
+            tv_description.setText(parcelle.getDescription());
+            tv_contact.setText(parcelle.getContactCourriel());
+            tv_prixMensuel.setText(parcelle.getPrixParMois()+"$");
+            tv_note.setText(parcelle.getNoteEtoile()+" ");
 
 
         }
