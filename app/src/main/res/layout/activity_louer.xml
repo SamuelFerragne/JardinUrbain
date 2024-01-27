@@ -7,21 +7,36 @@
     android:orientation="vertical"
     tools:context=".LouerActivity">
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/tb_retour"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        app:title="LouerActivity"
+        app:titleTextColor="@android:color/white" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <androidx.viewpager2.widget.ViewPager2
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/VP_imageParcelle"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" >
+            android:layout_height="198dp"
+            android:paddingLeft="10dp"
+            android:paddingTop="20dp"
+            android:paddingRight="10dp">
 
-        </androidx.viewpager2.widget.ViewPager2>
+        </androidx.viewpager.widget.ViewPager>
 
         <TextView
-            android:id="@+id/textView"
-            android:layout_width="wrap_content"
+            android:id="@+id/tv_adresse"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="center"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
             android:text="TextView" />
     </LinearLayout>
 
