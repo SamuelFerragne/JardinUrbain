@@ -13,8 +13,11 @@
         android:theme="@style/Theme.TheWitchersCode"
         tools:targetApi="31">
         <activity
+            android:name=".ConnexionActivity"
+            android:exported="true" />
+        <activity
             android:name=".MainActivity"
-            android:exported="true">
+            android:exported="false">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
