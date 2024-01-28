@@ -143,4 +143,3 @@ public class Jardin implements Parcelable {
         dest.writeList(images);
     }
 }
-
