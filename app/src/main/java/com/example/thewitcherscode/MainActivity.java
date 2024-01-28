@@ -33,18 +33,26 @@ import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.CameraUpdateFactory;
-
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 
 public class MainActivity extends AppCompatActivity implements OnMapReadyCallback{
 
     BottomNavigationView bnv_navigation;
+    FirebaseAuth bdAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        bdAuth = FirebaseAuth.getInstance();
+
+        FirebaseUser firebaseUser = bdAuth.getCurrentUser();
+        String uid = firebaseUser.getUid();
+
+        Log.d("UIDCURRENtuser", "uid:" + uid);
 
         bnv_navigation = findViewById(R.id.bnv_navigation);
         bnv_navigation.setItemIconTintList(null);
@@ -76,6 +84,11 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                 } else if (id == R.id.action_reseau) {
 
                 } else if (id == R.id.action_profil) {
+                    if(uid != null || uid != "") {
+                        intention = new Intent(MainActivity.this, ProfileActivity.class);
+                        intention.putExtra("id", id);
+                        startActivity(intention);
+                    }
                     intention = new Intent(MainActivity.this, inscriptionActivity.class);
                     intention.putExtra("id", id);
                     startActivity(intention);
