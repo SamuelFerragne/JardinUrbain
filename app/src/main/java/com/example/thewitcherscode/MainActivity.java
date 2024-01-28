@@ -1,5 +1,6 @@
 package com.example.thewitcherscode;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 
@@ -21,6 +22,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public boolean onNavigationItemSelected(MenuItem item) {
 
+                Intent intention;
+
                 if (item.getItemId() == R.id.action_louer) {
 
                 } else if (item.getItemId() == R.id.action_marche) {
@@ -30,7 +33,8 @@ public class MainActivity extends AppCompatActivity {
                 } else if (item.getItemId() == R.id.action_reseau) {
 
                 } else if (item.getItemId() == R.id.action_profil) {
-
+                    intention = new Intent(MainActivity.this, inscriptionActivity.class);
+                    startActivity(intention);
                 }
 
                 /*switch (item.getItemId()) {
