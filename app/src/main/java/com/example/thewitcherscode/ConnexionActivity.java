@@ -1,6 +1,7 @@
 package com.example.thewitcherscode;
 
 import androidx.annotation.NonNull;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -20,11 +21,13 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class ConnexionActivity extends AppCompatActivity {
 
     private TextView txtmtpOublier, txtInscriptionClick;
+
     private EditText champ_Courriel, champs_mtp;
     private Button btn_connexion;
     FirebaseAuth bdAuth;
@@ -37,6 +40,7 @@ public class ConnexionActivity extends AppCompatActivity {
 
         txtmtpOublier = findViewById(R.id.tv_mtpOublier); // TODO a ne pas oublier !!!!!!!!!!!!
 
+
         Intent intention = getIntent();
         int id = intention.getIntExtra("id", 0);
 
@@ -47,7 +51,6 @@ public class ConnexionActivity extends AppCompatActivity {
         champ_Courriel = findViewById(R.id.et_courriel);
         champs_mtp = findViewById(R.id.et_mtp);
         bdAuth = FirebaseAuth.getInstance();
-
 
 
         // TODO:: ALLER VERS LA PAGE OUBLIER MTP
@@ -113,6 +116,8 @@ public class ConnexionActivity extends AppCompatActivity {
 
                 /*
                 bnv_navigation = findViewById(R.id.bnv_navigation);
+                bnv_navigation.setItemIconTintList(null);
+                bnv_navigation.setItemIconSize(150);
                 bnv_navigation.setSelectedItemId(id);
                 bnv_navigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
                     @Override
@@ -148,4 +153,3 @@ public class ConnexionActivity extends AppCompatActivity {
         });
     }
 }
-
