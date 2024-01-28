@@ -84,6 +84,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                 } else if (id == R.id.action_reseau) {
 
                 } else if (id == R.id.action_profil) {
+
                     if(uid != null || uid != "") {
                         intention = new Intent(MainActivity.this, ProfileActivity.class);
                         intention.putExtra("id", id);

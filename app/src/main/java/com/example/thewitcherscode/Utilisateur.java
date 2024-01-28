@@ -7,25 +7,24 @@ import android.os.Parcelable;
 import androidx.annotation.NonNull;
 
 import java.util.Arrays;
+import java.util.List;
 
 public class Utilisateur implements Parcelable {
 
     private String nom;
     private String userName;
     private String courriel;
-    private String motpass;
     private int age;
     private String localisation;
 
-    private String [] parcelLouer;
-    private String [] parcelOffert;
+    private List<String> parcelLouer;
+    private List<String> parcelOffert;
 
     // constructeur
-    public Utilisateur(String nom, String userName, String courriel, String motpass, int age, String localisation, String[] parcelLouer, String[] parcelOffert) {
+    public Utilisateur(String nom, String userName, String courriel, int age, String localisation, List<String>  parcelLouer, List<String>  parcelOffert) {
         this.nom = nom;
         this.userName = userName;
         this.courriel = courriel;
-        this.motpass = motpass;
         this.age = age;
         this.localisation = localisation;
         this.parcelLouer = parcelLouer;
@@ -42,11 +41,10 @@ public class Utilisateur implements Parcelable {
         nom = in.readString();
         userName = in.readString();
         courriel = in.readString();
-        motpass = in.readString();
         age = in.readInt();
         localisation = in.readString();
-        parcelLouer = in.createStringArray();
-        parcelOffert = in.createStringArray();
+        parcelLouer = in.createStringArrayList();
+        parcelOffert = in.createStringArrayList();
     }
 
     public static final Creator<Utilisateur> CREATOR = new Creator<Utilisateur>() {
@@ -70,11 +68,10 @@ public class Utilisateur implements Parcelable {
         dest.writeString(nom);
         dest.writeString(userName);
         dest.writeString(courriel);
-        dest.writeString(motpass);
         dest.writeInt(age);
         dest.writeString(localisation);
-        dest.writeStringArray(parcelLouer);
-        dest.writeStringArray(parcelOffert);
+        dest.writeStringList(parcelLouer);
+        dest.writeStringList(parcelOffert);
     }
 
     // getter et setter
@@ -102,13 +99,6 @@ public class Utilisateur implements Parcelable {
         this.courriel = courriel;
     }
 
-    public String getMotpass() {
-        return motpass;
-    }
-
-    public void setMotpass(String motpass) {
-        this.motpass = motpass;
-    }
 
     public int getAge() {
         return age;
@@ -126,19 +116,19 @@ public class Utilisateur implements Parcelable {
         this.localisation = localisation;
     }
 
-    public String[] getParcelLouer() {
+    public List<String> getParcelLouer() {
         return parcelLouer;
     }
 
-    public void setParcelLouer(String[] parcelLouer) {
+    public void setParcelLouer(List<String>  parcelLouer) {
         this.parcelLouer = parcelLouer;
     }
 
-    public String[] getParcelOffert() {
+    public List<String> getParcelOffert() {
         return parcelOffert;
     }
 
-    public void setParcelOffert(String[] parcelOffert) {
+    public void setParcelOffert(List<String>  parcelOffert) {
         this.parcelOffert = parcelOffert;
     }
 
@@ -153,11 +143,8 @@ public class Utilisateur implements Parcelable {
                 "nom='" + nom + '\'' +
                 ", userName='" + userName + '\'' +
                 ", courriel='" + courriel + '\'' +
-                ", motpass='" + motpass + '\'' +
                 ", age=" + age +
                 ", localisation='" + localisation + '\'' +
-                ", parcelLouer=" + Arrays.toString(parcelLouer) +
-                ", parcelOffert=" + Arrays.toString(parcelOffert) +
                 '}';
     }
 }
