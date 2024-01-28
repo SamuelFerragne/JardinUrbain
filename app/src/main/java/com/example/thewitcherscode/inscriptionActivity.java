@@ -31,7 +31,7 @@ public class inscriptionActivity extends AppCompatActivity {
 
     FirebaseAuth bdAuth;
 
-    private EditText Nom_Complet, NomUti, champ_courriel, champ_mtp, champ_confi_Mtp;
+    private EditText champ_Nom_Complet, champ_NomUti, champ_courriel, champ_mtp, champ_confi_Mtp;
     private Button btn_inscription;
 
     BottomNavigationView bnv_navigation;
@@ -51,7 +51,7 @@ public class inscriptionActivity extends AppCompatActivity {
         champ_courriel = findViewById(R.id.et_Inscri_courriel);
         champ_confi_Mtp = findViewById(R.id.et_Inscri_confiMotPasse);
         champ_mtp = findViewById(R.id.et_Inscri_motpasse);
-        btnInscription = findViewById(R.id.btn_inscription);
+        btn_inscription = findViewById(R.id.btn_inscription);
 
         tv_connexionClick.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -96,7 +96,7 @@ public class inscriptionActivity extends AppCompatActivity {
 
 
         // TODO bouton inscription
-        btnInscription.setOnClickListener(new View.OnClickListener() {
+        btn_inscription.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String courriel = champ_courriel.getText().toString();

@@ -78,68 +78,69 @@ public class ConnexionActivity extends AppCompatActivity {
                 String champMtp = champs_mtp.getText().toString();
 
                 // TODO:: CONNEXION AU COMPTE
-                if(Patterns.EMAIL_ADDRESS.matcher(champCourriel).matches()&& champMtp.length() >= 10){
+                if (Patterns.EMAIL_ADDRESS.matcher(champCourriel).matches() && champMtp.length() >= 10) {
                     // is good
-                    bdAuth.signInWithEmailAndPassword(champCourriel,champMtp)
+                    bdAuth.signInWithEmailAndPassword(champCourriel, champMtp)
                             .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
 
                                 @Override
                                 public void onComplete(@NonNull Task<AuthResult> task) {
                                     Log.d("autho", "Courriel " + champCourriel);
                                     Log.d("autho", "mtp " + champMtp);
-                                    if(task.isSuccessful()){
+                                    if (task.isSuccessful()) {
                                         Log.d("autho", "is Successful");
                                         FirebaseUser usager = bdAuth.getCurrentUser();
                                         Intent intconnexion = new Intent(ConnexionActivity.this, MainActivity.class);
                                         startActivity(intconnexion);
 
-                                    }else {
+                                    } else {
                                         Toast.makeText(getApplicationContext(), "Erreur de connexion", Toast.LENGTH_SHORT).show();
                                     }
                                 }
 
                             });
-                }
-
-                else if(!Patterns.EMAIL_ADDRESS.matcher(champCourriel).matches()){
+                } else if (!Patterns.EMAIL_ADDRESS.matcher(champCourriel).matches()) {
                     champ_Courriel.setError("Erreur de courriel");
                     champ_Courriel.requestFocus();
-                }else{
+                } else {
                     // erreur
                     champs_mtp.setError("Mots de passe incorrect");
                     champs_mtp.requestFocus();
                 }
 
 
-        bnv_navigation = findViewById(R.id.bnv_navigation);
-        bnv_navigation.setSelectedItemId(id);
-        bnv_navigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(MenuItem item) {
+                bnv_navigation = findViewById(R.id.bnv_navigation);
+                bnv_navigation.setSelectedItemId(id);
+                bnv_navigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+                    @Override
+                    public boolean onNavigationItemSelected(MenuItem item) {
 
-                Intent intention;
-                int id = item.getItemId();
+                        Intent intention;
+                        int id = item.getItemId();
 
-                if (id == R.id.action_louer) {
+                        if (id == R.id.action_louer) {
 
-                } else if (id == R.id.action_marche) {
+                        } else if (id == R.id.action_marche) {
 
-                } else if (id == R.id.action_carte) {
-                    intention = new Intent(ConnexionActivity.this, MainActivity.class);
-                    intention.putExtra("id", id);
-                    startActivity(intention);
+                        } else if (id == R.id.action_carte) {
+                            intention = new Intent(ConnexionActivity.this, MainActivity.class);
+                            intention.putExtra("id", id);
+                            startActivity(intention);
 
-                } else if (id == R.id.action_reseau) {
+                        } else if (id == R.id.action_reseau) {
 
-                } else if (id == R.id.action_profil) {
-                    intention = new Intent(ConnexionActivity.this, ConnexionActivity.class);
-                    intention.putExtra("id", id);
-                    startActivity(intention);
-                }
+                        } else if (id == R.id.action_profil) {
+                            intention = new Intent(ConnexionActivity.this, ConnexionActivity.class);
+                            intention.putExtra("id", id);
+                            startActivity(intention);
+                        }
 
 
-                return false;
+                        return false;
+                    }
+                });
             }
         });
     }
 }
+
