@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".inscriptionActivity"
-    android:background="@drawable/gradient_background">
+    android:background="@drawable/gradient_background"
+    tools:context=".inscriptionActivity">
 
 
     <TextView
@@ -57,9 +57,9 @@
         android:id="@+id/et_Inscri_nomUtilisateur"
         android:layout_width="300dp"
         android:layout_height="55dp"
+        android:background="@drawable/border_inputs"
         android:ems="10"
         android:hint="Nom d'utilisateur"
-        android:background="@drawable/border_inputs"
         android:inputType="text"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -89,9 +89,9 @@
         android:id="@+id/et_Inscri_confiMotPasse"
         android:layout_width="300dp"
         android:layout_height="55dp"
+        android:background="@drawable/border_inputs"
         android:ems="10"
         android:hint="Confirmation Mot de passe"
-        android:background="@drawable/border_inputs"
         android:inputType="textPassword"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -143,12 +143,13 @@
         app:layout_constraintVertical_bias="0.828"
         tools:ignore="MissingConstraints" />
 
-    <include layout="@layout/bottom_navigation"
+    <include
+        layout="@layout/bottom_navigation"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"/>
+        app:layout_constraintStart_toStartOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

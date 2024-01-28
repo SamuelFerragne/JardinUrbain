@@ -6,4 +6,5 @@
     <color name="earthEndColor">#D2B48C</color>   <!-- Couleur de fin pour le dégradé -->
     <color name="rockColor">#A9A9A9</color>        <!-- Couleur de la roche -->
     <color name="soilColor">#8B4513</color>
+    <color name="green">#3D9741</color>
 </resources>

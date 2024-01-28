@@ -30,7 +30,7 @@ import java.util.Map;
 
 public class ParcelleOffertActivity extends AppCompatActivity {
 
-    String projectID = "thewitchercode";  // Your Firebase Project ID
+    String projectID = "thewitchercode";
     FirebaseDatabase database = FirebaseDatabase.getInstance();
 
     FirebaseAuth bdAuth;

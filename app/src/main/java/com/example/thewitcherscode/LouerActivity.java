@@ -5,6 +5,7 @@ import androidx.viewpager.widget.ViewPager;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -13,6 +14,8 @@ import android.widget.TextView;
 
 import androidx.appcompat.widget.Toolbar;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,6 +23,7 @@ public class LouerActivity extends AppCompatActivity {
     private Spinner spinnerNbParcelles;
     private TextView tvPrixTotal;
     private Jardin jardin;
+    BottomNavigationView bnv_navigation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,12 +37,45 @@ public class LouerActivity extends AppCompatActivity {
         TextView    tv_description      =   findViewById(R.id.tv_description);
         TextView    tv_contact          =   findViewById(R.id.tv_contact);
         TextView    tv_prixMensuel      =   findViewById(R.id.tv_prixMensuel);
-        TextView    tv_note             =   findViewById(R.id.tv_note);
         spinnerNbParcelles = findViewById(R.id.spinner_nbParcelles);
         tvPrixTotal = findViewById(R.id.tv_prixTotal);
+        bnv_navigation = findViewById(R.id.bnv_navigation);
+        bnv_navigation.setItemIconTintList(null);
+        bnv_navigation.setItemIconSize(150);
         setSupportActionBar(tb_retour);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        Intent intention = getIntent();
+        int id = intention.getIntExtra("id", 0);
+        bnv_navigation.setSelectedItemId(id);
+        bnv_navigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(MenuItem item) {
+
+                Intent intention;
+                int id = item.getItemId();
+
+                if (id == R.id.action_louer) {
+                    intention = new Intent(LouerActivity.this, ParcelleOffertActivity.class);
+                    startActivity(intention);
+
+                } else if (id == R.id.action_marche) {
+
+                } else if (id == R.id.action_carte) {
+
+                } else if (id == R.id.action_reseau) {
+
+                } else if (id == R.id.action_profil) {
+                    intention = new Intent(LouerActivity.this, inscriptionActivity.class);
+                    intention.putExtra("id", id);
+                    startActivity(intention);
+                }
+
+
+                return false;
+            }
+        });
+
 
 
 
@@ -85,7 +122,6 @@ public class LouerActivity extends AppCompatActivity {
             tv_description.setText(jardin.getDescription());
             tv_contact.setText(jardin.getOwner());
             tv_prixMensuel.setText(jardin.getPrixParcelle()+"$");
-            tv_note.setText(jardin.getNoteEtoile()+" ");
 
 
         }

@@ -113,7 +113,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         Log.w("myApp",images+"");
 
         return new Jardin(
-                "Adresse de test",
+                "2800 côte de Terrebonne, Terrebonne, J6Y 1H4",
                 500.0,
                 "Description de test",
                 "test@email.com",

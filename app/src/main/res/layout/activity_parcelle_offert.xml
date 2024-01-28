@@ -8,6 +8,12 @@
     tools:context=".OffreJardinActivity">
 
 
+    <Button
+        android:id="@+id/btnImportImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Importer une image" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="255dp"
@@ -22,10 +28,12 @@
 
             <TextView
                 android:id="@+id/tv_adresse"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="212dp"
+                android:layout_height="5dp"
                 android:layout_weight="1"
-                android:text="Adresse:" />
+                android:fontFamily="@font/alata"
+                android:text="Adresse:"
+                android:textSize="20sp" />
 
             <EditText
                 android:id="@+id/et_rue"
@@ -92,14 +100,9 @@
                 android:gravity="start|top"
                 android:hint="Description"
                 android:inputType="textMultiLine" />
+
         </LinearLayout>
     </LinearLayout>
-
-    <Button
-        android:id="@+id/btnImportImage"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Importer une image" />
 
     <Button
         android:id="@+id/btnEnregistrer"
