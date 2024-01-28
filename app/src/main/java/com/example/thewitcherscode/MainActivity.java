@@ -31,8 +31,6 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
 
     BottomNavigationView bnv_navigation;
 
-    BottomNavigationView bnv_navigation;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,6 +40,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         bnv_navigation = findViewById(R.id.bnv_navigation);
         bnv_navigation.setItemIconTintList(null);
         bnv_navigation.setItemIconSize(150);
+
         // Get the SupportMapFragment and request notification when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
 

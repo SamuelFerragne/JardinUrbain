@@ -53,7 +53,6 @@ public class ConnexionActivity extends AppCompatActivity {
         bdAuth = FirebaseAuth.getInstance();
 
 
-
         // TODO:: ALLER VERS LA PAGE OUBLIER MTP
         txtmtpOublier.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -113,39 +112,39 @@ public class ConnexionActivity extends AppCompatActivity {
                 }
 
 
-           bnv_navigation = findViewById(R.id.bnv_navigation);
-        bnv_navigation.setItemIconTintList(null);
-        bnv_navigation.setItemIconSize(150);
-        bnv_navigation.setSelectedItemId(id);
-        bnv_navigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(MenuItem item) {
+                bnv_navigation = findViewById(R.id.bnv_navigation);
+                bnv_navigation.setItemIconTintList(null);
+                bnv_navigation.setItemIconSize(150);
+                bnv_navigation.setSelectedItemId(id);
+                bnv_navigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+                    @Override
+                    public boolean onNavigationItemSelected(MenuItem item) {
 
-                Intent intention;
-                int id = item.getItemId();
+                        Intent intention;
+                        int id = item.getItemId();
 
-                if (id == R.id.action_louer) {
+                        if (id == R.id.action_louer) {
 
-                } else if (id == R.id.action_marche) {
+                        } else if (id == R.id.action_marche) {
 
-                } else if (id == R.id.action_carte) {
-                    intention = new Intent(ConnexionActivity.this, MainActivity.class);
-                    intention.putExtra("id", id);
-                    startActivity(intention);
+                        } else if (id == R.id.action_carte) {
+                            intention = new Intent(ConnexionActivity.this, MainActivity.class);
+                            intention.putExtra("id", id);
+                            startActivity(intention);
 
-                } else if (id == R.id.action_reseau) {
+                        } else if (id == R.id.action_reseau) {
 
-                } else if (id == R.id.action_profil) {
-                    intention = new Intent(ConnexionActivity.this, ConnexionActivity.class);
-                    intention.putExtra("id", id);
-                    startActivity(intention);
-                }
+                        } else if (id == R.id.action_profil) {
+                            intention = new Intent(ConnexionActivity.this, ConnexionActivity.class);
+                            intention.putExtra("id", id);
+                            startActivity(intention);
+                        }
 
 
-                return false;
+                        return false;
+                    }
+                });
             }
         });
     }
 }
-
-
