@@ -54,6 +54,8 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                 int id = item.getItemId();
 
                 if (id == R.id.action_louer) {
+                    intention = new Intent(MainActivity.this, ParcelleOffertActivity.class);
+                    startActivity(intention);
 
                 } else if (id == R.id.action_marche) {
 
