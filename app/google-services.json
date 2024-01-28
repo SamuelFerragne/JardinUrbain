@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "954079774358",
+    "project_id": "thewitchercode",
+    "storage_bucket": "thewitchercode.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:954079774358:android:2895409c13c8197b29e4b7",
+        "android_client_info": {
+          "package_name": "com.example.thewitcherscode"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCuySzpidWzgENgfoWalVEQXCqjznRK0lg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

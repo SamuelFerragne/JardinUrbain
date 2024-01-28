@@ -12,6 +12,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TheWitchersCode"
         tools:targetApi="31">
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyBZlujSZ1Vw-vSu4EvYZwAMAZ285Wk1e-g" />
+
+       <activity
+            android:name=".ConnexionActivity"
+            android:exported="true" />
+        <activity
+            android:name=".inscriptionActivity"
+            android:exported="true" />
         <activity
             android:name=".MainActivity"
             android:exported="true">
@@ -22,5 +32,10 @@
             </intent-filter>
         </activity>
     </application>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
 </manifest>
