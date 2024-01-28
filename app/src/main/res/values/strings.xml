@@ -1,8 +1,9 @@
 <resources>
     <string name="app_name">TheWitchersCode</string>
-    <string name="superficie">Superficie</string>
-    <string name="description">Description</string>
-    <string name="contact">Contact</string>
-    <string name="prix">Prix Mensuel</string>
+    <string name="superficie">Superficie de parcelle:</string>
+    <string name="description">Description:</string>
+    <string name="contact">Propriétaire:</string>
+    <string name="prix">Prix mensuel par parcelle:</string>
     <string name="louer">Louer</string>
+    <string name="prixTotal"></string>
 </resources>

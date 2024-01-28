@@ -19,27 +19,27 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void ouvrirLouerActivity(View view) {
-        Parcelle parcelleTest = createParcelleTest();
+        Jardin jardinTest = createJardinTest();
         Intent intent = new Intent(this, LouerActivity.class);
-        intent.putExtra("parcelle", parcelleTest);
+        intent.putExtra("jardin", jardinTest);
         startActivity(intent);
     }
 
-    private Parcelle createParcelleTest() {
+    private Jardin createJardinTest() {
         List<Integer> images = new ArrayList<>();
         images.add(R.drawable.terre_cultive);
         images.add(R.drawable.terre_agricole);
 
         Log.w("myApp",images+"");
 
-        return new Parcelle(
+        return new Jardin(
                 "Adresse de test",
                 500.0,
                 "Description de test",
                 "test@email.com",
-                "123456789",
                 5,
                 "150m",
+                5,
                 images
         );
     }
