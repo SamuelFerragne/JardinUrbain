@@ -23,7 +23,7 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.CameraUpdateFactory;
 
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements OnMapReadyCallback{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
         LatLng defaultPos = new LatLng(45.49502662776999, -73.56203619520896);
         CameraPosition camPos = new CameraPosition.Builder().target(defaultPos).zoom(15).build();
         googleMap.animateCamera(CameraUpdateFactory.newCameraPosition(camPos));
+
     }
 
 }
