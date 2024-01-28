@@ -1,0 +1,34 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/action_louer"
+        android:icon="@drawable/soil"
+        android:title=""
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_marche"
+        android:title="Marche"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_carte"
+        android:icon="@drawable/earth_nocolor"
+        android:title="Carte"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_reseau"
+        android:title="Reseau"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_profil"
+        android:icon="@drawable/profile"
+        android:title="Profil"
+        app:showAsAction="never" />
+
+    <!-- Ajoutez d'autres items au besoin -->
+
+</menu>
