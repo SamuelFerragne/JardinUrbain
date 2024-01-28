@@ -45,12 +45,15 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
+        bnv_navigation = findViewById(R.id.bnv_navigation);
+        bnv_navigation.setItemIconTintList(null);
+        bnv_navigation.setItemIconSize(150);
+
         // Get the SupportMapFragment and request notification when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
 
         mapFragment.getMapAsync(this);
-      
-        bnv_navigation = findViewById(R.id.bnv_navigation);
 
         Intent intention = getIntent();
         int id = intention.getIntExtra("id", 0);
@@ -92,7 +95,6 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         LatLng defaultPos = new LatLng(45.49502662776999, -73.56203619520896);
         CameraPosition camPos = new CameraPosition.Builder().target(defaultPos).zoom(15).build();
         googleMap.animateCamera(CameraUpdateFactory.newCameraPosition(camPos));
-
     }
 
 

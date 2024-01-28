@@ -1,0 +1,17 @@
+<!-- res/drawable/bg_earth_layers.xml -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Couche de fond avec un dégradé de couleurs pour le fondu -->
+
+
+    <!-- Ajoutez ici autant de couches que nécessaire pour représenter les différentes strates de la terre -->
+    <!-- Par exemple, une couche pour la roche, une pour le sol, etc. -->
+    <item
+        android:bottom="0dp"
+        android:drawable="@color/rockColor" />
+    <item
+        android:bottom="20dp"
+        android:drawable="@color/soilColor" />
+
+    <!-- Vous pouvez ajouter plus de couches selon votre design -->
+</layer-list>

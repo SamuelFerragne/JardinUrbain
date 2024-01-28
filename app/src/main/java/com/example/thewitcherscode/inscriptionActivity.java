@@ -1,6 +1,7 @@
 package com.example.thewitcherscode;
 
 import androidx.annotation.NonNull;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -23,11 +24,13 @@ import com.google.firebase.auth.UserProfileChangeRequest;
 
 import org.intellij.lang.annotations.Pattern;
 
+
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class inscriptionActivity extends AppCompatActivity {
 
     private TextView tv_connexionClick;
+
 
     FirebaseAuth bdAuth;
 
@@ -63,6 +66,8 @@ public class inscriptionActivity extends AppCompatActivity {
         });
 
         bnv_navigation = findViewById(R.id.bnv_navigation);
+        bnv_navigation.setItemIconTintList(null);
+        bnv_navigation.setItemIconSize(150);
         bnv_navigation.setSelectedItemId(id);
         bnv_navigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -92,7 +97,6 @@ public class inscriptionActivity extends AppCompatActivity {
                 return false;
             }
         });
-
 
 
         // TODO bouton inscription
