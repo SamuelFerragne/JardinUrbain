@@ -52,7 +52,7 @@
 
     <TextView
         android:id="@+id/tv_mtpOublier"
-        android:layout_width="169dp"
+        android:layout_width="202dp"
         android:layout_height="23dp"
         android:clickable="true"
         android:text="Mot de passe oublié ?"
@@ -60,7 +60,7 @@
         android:textSize="18dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.768"
+        app:layout_constraintHorizontal_bias="0.732"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -99,7 +99,7 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.732" />
+        app:layout_constraintVertical_bias="0.73" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
