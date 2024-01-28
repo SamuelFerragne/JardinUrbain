@@ -62,7 +62,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                 } else if (id == R.id.action_reseau) {
 
                 } else if (id == R.id.action_profil) {
-                    intention = new Intent(MainActivity.this, inscriptionActivity.class);
+                    intention = new Intent(MainActivity.this, ProfileActivity.class);
                     intention.putExtra("id", id);
                     startActivity(intention);
                 }

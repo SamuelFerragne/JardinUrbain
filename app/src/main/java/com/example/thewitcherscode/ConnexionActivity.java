@@ -92,6 +92,8 @@ public class ConnexionActivity extends AppCompatActivity {
                                         FirebaseUser usager = bdAuth.getCurrentUser();
                                         Intent intconnexion = new Intent(ConnexionActivity.this, MainActivity.class);
                                         startActivity(intconnexion);
+                                        Utilisateur usti = new Utilisateur();
+                                        Log.d("uti", "onComplete: "+ usti.getCourriel());
 
                                     } else {
                                         Toast.makeText(getApplicationContext(), "Erreur de connexion", Toast.LENGTH_SHORT).show();
@@ -109,6 +111,7 @@ public class ConnexionActivity extends AppCompatActivity {
                 }
 
 
+                /*
                 bnv_navigation = findViewById(R.id.bnv_navigation);
                 bnv_navigation.setSelectedItemId(id);
                 bnv_navigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -139,6 +142,8 @@ public class ConnexionActivity extends AppCompatActivity {
                         return false;
                     }
                 });
+
+                 */
             }
         });
     }

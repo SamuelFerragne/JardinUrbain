@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
@@ -24,6 +25,13 @@ import com.google.firebase.auth.UserProfileChangeRequest;
 import org.intellij.lang.annotations.Pattern;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class inscriptionActivity extends AppCompatActivity {
 
@@ -33,6 +41,10 @@ public class inscriptionActivity extends AppCompatActivity {
 
     private EditText champ_Nom_Complet, champ_NomUti, champ_courriel, champ_mtp, champ_confi_Mtp;
     private Button btn_inscription;
+
+    FirebaseDatabase bd;
+
+    DatabaseReference ref;
 
     BottomNavigationView bnv_navigation;
     @Override
@@ -94,7 +106,6 @@ public class inscriptionActivity extends AppCompatActivity {
         });
 
 
-
         // TODO bouton inscription
         btn_inscription.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -107,14 +118,12 @@ public class inscriptionActivity extends AppCompatActivity {
 
                 bdAuth = FirebaseAuth.getInstance();
 
+
                 // TODO: creation d'un compte
 
                 if(Patterns.EMAIL_ADDRESS.matcher(courriel).matches()){
 
                     if(mtp.matches(confiMtp) && mtp.length() >= 10){
-                        InputMethodManager imm = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
-                        imm.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
-
                         bdAuth.createUserWithEmailAndPassword(courriel, mtp)
                                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                                     @Override
@@ -122,8 +131,22 @@ public class inscriptionActivity extends AppCompatActivity {
                                         // si ca marche
                                         if(task.isSuccessful()){
                                             // direction vers le main
-                                            Toast.makeText(getApplicationContext(), "Creation du compte avec succes !", Toast.LENGTH_SHORT).show();
+                                            // Initialisation des listes avec ArrayList
+                                            List<String> parcelLouer = new ArrayList<>();
+                                            List<String> parcelOffert = new ArrayList<>();
                                             FirebaseUser usager = bdAuth.getCurrentUser();
+                                            Utilisateur compteUti = new Utilisateur(usager.getDisplayName(), champ_NomUti.getText().toString(), usager.getEmail(), 00, "", parcelLouer,parcelOffert);
+                                            Toast.makeText(getApplicationContext(), "Creation du compte avec succes !", Toast.LENGTH_SHORT).show();
+                                            //String us = FirebaseAuth.getInstance().getCurrentUser().getDisplayName();
+                                            //Log.d("CURRENTUSER", us);
+                                            Map<String, Utilisateur> user = new HashMap<>();
+                                            user.put(compteUti.getUserName(), compteUti);
+
+                                            bd = FirebaseDatabase.getInstance();
+                                            ref = bd.getReference("thewitchercode");
+                                            DatabaseReference userRef = ref.child("user").push();
+                                            userRef.setValue(user);
+
 
                                             if(usager != null){
                                                 usager.updateProfile(new UserProfileChangeRequest.Builder().setDisplayName(nomComplet).build());
