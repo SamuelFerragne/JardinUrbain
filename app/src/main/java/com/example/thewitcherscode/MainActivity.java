@@ -37,25 +37,7 @@ public class MainActivity extends AppCompatActivity {
                     startActivity(intention);
                 }
 
-                /*switch (item.getItemId()) {
-                    case R.id.action_louer:
-                        // Action lorsque Item 1 est sélectionné
-                        return true;
-                    case R.id.action_marche:
-                        // Action lorsque Item 2 est sélectionné
-                        return true;
-                    case R.id.action_carte:
-                        // Action lorsque Item 3 est sélectionné
-                        return true;
-                    case R.id.action_reseau:
-                        // Action lorsque Item 4 est sélectionné
-                        return true;
-                    case R.id.action_profil:
-                        // Action lorsque Item 5 est sélectionné
-                        return true;
-                    default:
-                        return false;
-                }*/
+
                 return false;
             }
         });

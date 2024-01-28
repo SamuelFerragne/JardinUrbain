@@ -4,12 +4,16 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
+
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class ConnexionActivity extends AppCompatActivity {
 
     private TextView txtmtpOublier, txtInscriptionClick;
+    BottomNavigationView bnv_navigation;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,6 +40,33 @@ public class ConnexionActivity extends AppCompatActivity {
                 Intent acc_isncription = new Intent(ConnexionActivity.this, inscriptionActivity.class);
                 startActivity(acc_isncription);
 
+            }
+        });
+
+        bnv_navigation = findViewById(R.id.bnv_navigation);
+        bnv_navigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(MenuItem item) {
+
+                Intent intention;
+
+                if (item.getItemId() == R.id.action_louer) {
+
+                } else if (item.getItemId() == R.id.action_marche) {
+
+                } else if (item.getItemId() == R.id.action_carte) {
+                    intention = new Intent(ConnexionActivity.this, MainActivity.class);
+                    startActivity(intention);
+
+                } else if (item.getItemId() == R.id.action_reseau) {
+
+                } else if (item.getItemId() == R.id.action_profil) {
+                    intention = new Intent(ConnexionActivity.this, ConnexionActivity.class);
+                    startActivity(intention);
+                }
+
+
+                return false;
             }
         });
     }
