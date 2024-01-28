@@ -48,6 +48,8 @@ public class ConnexionActivity extends AppCompatActivity {
         });
 
         bnv_navigation = findViewById(R.id.bnv_navigation);
+        bnv_navigation.setItemIconTintList(null);
+        bnv_navigation.setItemIconSize(150);
         bnv_navigation.setSelectedItemId(id);
         bnv_navigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override

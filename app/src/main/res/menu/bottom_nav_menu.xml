@@ -3,29 +3,29 @@
 
     <item
         android:id="@+id/action_louer"
-        android:icon="@drawable/soil"
+        android:icon="@drawable/soil_color"
         android:title=""
         app:showAsAction="never" />
 
     <item
         android:id="@+id/action_marche"
-        android:title="Marche"
+        android:title=""
         app:showAsAction="never" />
 
     <item
         android:id="@+id/action_carte"
-        android:icon="@drawable/earth_nocolor"
-        android:title="Carte"
+        android:icon="@drawable/earth_color"
+        android:title=""
         app:showAsAction="never" />
 
     <item
         android:id="@+id/action_reseau"
-        android:title="Reseau"
+        android:title=""
         app:showAsAction="never" />
 
     <item
         android:id="@+id/action_profil"
-        android:icon="@drawable/profile"
+        android:icon="@drawable/profile_color"
         android:title="Profil"
         app:showAsAction="never" />
 

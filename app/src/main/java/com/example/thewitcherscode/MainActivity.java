@@ -18,6 +18,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         bnv_navigation = findViewById(R.id.bnv_navigation);
+        bnv_navigation.setItemIconTintList(null);
+        bnv_navigation.setItemIconSize(150);
 
         Intent intention = getIntent();
         int id = intention.getIntExtra("id", 0);
