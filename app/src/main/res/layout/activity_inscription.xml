@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".inscriptionActivity">
+    tools:context=".inscriptionActivity"
+    android:background="@drawable/gradient_background">
 
 
     <TextView
@@ -21,9 +22,10 @@
         tools:ignore="MissingConstraints" />
 
     <EditText
-        android:id="@+id/et_comComplet"
+        android:id="@+id/et_Inscri_nomComplet"
         android:layout_width="300dp"
         android:layout_height="55dp"
+        android:background="@drawable/border_inputs"
         android:ems="10"
         android:hint="Nom Complet"
         android:inputType="text"
@@ -36,9 +38,10 @@
         tools:ignore="MissingConstraints" />
 
     <EditText
-        android:id="@+id/et_courriel"
+        android:id="@+id/et_Inscri_courriel"
         android:layout_width="300dp"
         android:layout_height="55dp"
+        android:background="@drawable/border_inputs"
         android:ems="10"
         android:hint="Courriel"
         android:inputType="text"
@@ -51,11 +54,12 @@
         tools:ignore="MissingConstraints" />
 
     <EditText
-        android:id="@+id/et_nomUtilisateur"
+        android:id="@+id/et_Inscri_nomUtilisateur"
         android:layout_width="300dp"
         android:layout_height="55dp"
         android:ems="10"
         android:hint="Nom d'utilisateur"
+        android:background="@drawable/border_inputs"
         android:inputType="text"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -66,9 +70,10 @@
         tools:ignore="MissingConstraints" />
 
     <EditText
-        android:id="@+id/et_motpasse"
+        android:id="@+id/et_Inscri_motpasse"
         android:layout_width="300dp"
         android:layout_height="55dp"
+        android:background="@drawable/border_inputs"
         android:ems="10"
         android:hint="Mot de passe"
         android:inputType="textPassword"
@@ -77,14 +82,16 @@
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.485"
         tools:ignore="MissingConstraints" />
 
     <EditText
-        android:id="@+id/et_confiMotPasse"
+        android:id="@+id/et_Inscri_confiMotPasse"
         android:layout_width="300dp"
         android:layout_height="55dp"
         android:ems="10"
         android:hint="Confirmation Mot de passe"
+        android:background="@drawable/border_inputs"
         android:inputType="textPassword"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -127,12 +134,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Connexion"
+        android:textSize="18dp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.819"
+        app:layout_constraintVertical_bias="0.828"
         tools:ignore="MissingConstraints" />
 
 

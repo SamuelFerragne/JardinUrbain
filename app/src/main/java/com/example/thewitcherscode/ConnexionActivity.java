@@ -33,6 +33,8 @@ public class ConnexionActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // INTENT POUR ALLER VERS LA PAGE INSCRIPTION
+                Intent acc_isncription = new Intent(ConnexionActivity.this, inscriptionActivity.class);
+                startActivity(acc_isncription);
 
             }
         });
