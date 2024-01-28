@@ -1,5 +1,13 @@
 package com.example.thewitcherscode;
 
+import com.google.firebase.FirebaseApp;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -7,6 +15,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -15,11 +24,17 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class ParcelleOffertActivity extends AppCompatActivity {
 
+    String projectID = "thewitchercode";  // Your Firebase Project ID
+    FirebaseDatabase database = FirebaseDatabase.getInstance();
 
+    FirebaseAuth bdAuth;
+    DatabaseReference databaseReference = database.getReference(projectID);
     private static final int PICK_IMAGE_REQUEST_CODE = 1;
     private List<Uri> selectedImages = new ArrayList<>();
 
@@ -29,6 +44,10 @@ public class ParcelleOffertActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_parcelle_offert);
+
+        FirebaseApp.initializeApp(this);
+
+        bdAuth = FirebaseAuth.getInstance();
 
         etRue = findViewById(R.id.et_rue);
         etVille = findViewById(R.id.et_ville);
@@ -60,17 +79,34 @@ public class ParcelleOffertActivity extends AppCompatActivity {
                 String dimension = editTextDimension.getText().toString();
                 String description = editTextDescription.getText().toString();
 
+                DatabaseReference jardinsRef = databaseReference.child("jardins");
                 // Create a Jardin object with the user-entered values
                 Jardin jardin = new Jardin(
                         rue + ", " + ville + ", " + code,
                         prixParcelle,
                         description,
-                        "Owner Name", // You can replace "Owner Name" with the actual owner's name
-                        0, // Default value for noteEtoile, you may want to change this
+                        bdAuth.getCurrentUser().getUid(),
+                        0,
                         dimension,
                         nbParcelles,
-                        new ArrayList<>() // An empty list for images, you can modify this based on your implementation
+                        getImagesIds(selectedImages) // Pass the list of image URLs as strings
                 );
+                // Get a reference to the "jardins" node in your database
+                Log.d("DBREPORT","first shit");
+
+
+                Map<String, Jardin> jardins = new HashMap<>();
+                jardins.put(jardin.getOwner() + "_" + code, jardin);
+
+                //jardinsRef.setValueAsync(jardins);
+                jardinsRef.setValue(jardins);
+
+                //Push the Jardin object to the database
+                DatabaseReference newJardinRef = jardinsRef.push();
+                newJardinRef.setValue(jardin);
+
+                // Display a success message
+                showToast("Jardin enregistré avec succès");
             }
         });
 
@@ -110,12 +146,40 @@ public class ParcelleOffertActivity extends AppCompatActivity {
     private List<String> getImagesPaths(List<Uri> uris) {
         List<String> paths = new ArrayList<>();
         for (Uri uri : uris) {
-            paths.add(uri.toString());
+            paths.add(uri.toString());  // Convert Uri to String
         }
         return paths;
     }
 
+    private List<Integer> getImagesIds(List<Uri> uris) {
+        List<Integer> ids = new ArrayList<>();
+        for (Uri uri : uris) {
+            int imageId = uri.hashCode(); // Convert Uri to Integer using hashCode
+            ids.add(imageId);
+        }
+        return ids;
+    }
     private void showToast(String message) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
+    }
+    private void checkAndCreateJardinsNode() {
+        DatabaseReference jardinsRef = databaseReference.child("jardins");
+        jardinsRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if (!dataSnapshot.exists()) {
+                    // "jardins" node doesn't exist, create it
+                    jardinsRef.setValue(true);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                // Handle errors if needed
+            }
+        });
+    }
+    private void setupDatabase() {
+        checkAndCreateJardinsNode();
     }
 }

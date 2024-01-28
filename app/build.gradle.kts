@@ -47,6 +47,7 @@ dependencies {
     implementation("com.google.android.material:material:1.10.0")
     implementation(platform("com.google.firebase:firebase-bom:32.7.1"))
     implementation("com.google.firebase:firebase-analytics")
+    implementation("com.google.firebase:firebase-database:20.3.0")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
     implementation("com.google.android.gms:play-services-maps:18.2.0")
     implementation("androidx.annotation:annotation:1.6.0")
