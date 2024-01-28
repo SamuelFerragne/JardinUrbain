@@ -2,4 +2,8 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="earthStartColor">#8B4513</color> <!-- Couleur de départ pour le dégradé -->
+    <color name="earthEndColor">#D2B48C</color>   <!-- Couleur de fin pour le dégradé -->
+    <color name="rockColor">#A9A9A9</color>        <!-- Couleur de la roche -->
+    <color name="soilColor">#8B4513</color>
 </resources>
